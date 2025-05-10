@@ -15,8 +15,8 @@ importers:
         specifier: 0.63.2
         version: 0.63.2
       '@vmrh/core':
-        specifier: 0.1.0-alpha.1
-        version: 0.1.0-alpha.1(vue-router@4.5.0(vue@3.5.13(typescript@5.7.3)))(vue@3.5.13(typescript@5.7.3))
+        specifier: 0.2.0-alpha
+        version: 0.2.0-alpha(vue-router@4.5.0(vue@3.5.13(typescript@5.7.3)))(vue@3.5.13(typescript@5.7.3))
       element-plus:
         specifier: 2.3.14
         version: 2.3.14(vue@3.5.13(typescript@5.7.3))
@@ -634,8 +634,8 @@ packages:
       vite: ^5.0.0 || ^6.0.0
       vue: ^3.2.25
 
-  '@vmrh/core@0.1.0-alpha.1':
-    resolution: {integrity: sha512-M8iLpJOxHCBOTi+sl8s7mZWRK9tgly4LfAw2uKgctPK7Pj7nWc8epM2Bgzqk3MSEN4AqGmiHd09kJ29Xs3sHFA==}
+  '@vmrh/core@0.2.0-alpha':
+    resolution: {integrity: sha512-6JYtzgf+v8+SZXYx23Xb5LK5EWW/OLqFkI56Rs8JmekS88VW7kdAI7hVK1SH0yvAIwSVIVss6VXJx6KAu81cCA==}
     engines: {node: '>=20.0.0'}
     peerDependencies:
       vue: ^3
@@ -1604,7 +1604,7 @@ snapshots:
       vite: 6.3.4(@types/node@22.15.14)(jiti@1.21.7)(tsx@4.19.4)
       vue: 3.5.13(typescript@5.7.3)
 
-  '@vmrh/core@0.1.0-alpha.1(vue-router@4.5.0(vue@3.5.13(typescript@5.7.3)))(vue@3.5.13(typescript@5.7.3))':
+  '@vmrh/core@0.2.0-alpha(vue-router@4.5.0(vue@3.5.13(typescript@5.7.3)))(vue@3.5.13(typescript@5.7.3))':
     dependencies:
       '@vue-use-x/common': 1.0.1(vue@3.5.13(typescript@5.7.3))
       vue: 3.5.13(typescript@5.7.3)

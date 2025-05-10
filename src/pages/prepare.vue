@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { setupModal, ModalPathView } from '@vmrh/core'
+import { setupModal } from '@vmrh/core'
 import PageSection from '~/components/PageSection.vue'
 import { ElButton, ElLoading } from 'element-plus'
 import { computed, onMounted, ref } from 'vue'
@@ -47,31 +47,37 @@ onMounted(async () => {
         title="Prepare then open"
         description="A situation that API data is required before opening the modal."
     />
-    <PageSection title="Modal" description="test useModal">
-        <div class="max-w-500px">
-            <ElDescriptions
-                class="my-4"
-                title="User Info"
-                direction="vertical"
-                :column="4"
-                border
-            >
-                <ElDescriptionsItem label="Username">
-                    {{ userData.name }}
-                </ElDescriptionsItem>
-                <ElDescriptionsItem label="Age">
-                    {{ userData.age }}
-                </ElDescriptionsItem>
-            </ElDescriptions>
+    <p class="description">
+        Try to open the modal then reload the page. <br />
+        You will see the modal is opened after data is fetched.
+    </p>
+
+    <ElDivider />
+
+    <div class="max-w-500px">
+        <ElDescriptions
+            class="my-4"
+            title="User Info"
+            direction="vertical"
+            :column="4"
+            border
+        >
+            <ElDescriptionsItem label="Username">
+                {{ userData.name }}
+            </ElDescriptionsItem>
+            <ElDescriptionsItem label="Age">
+                {{ userData.age }}
+            </ElDescriptionsItem>
+        </ElDescriptions>
+    </div>
+    <div class="grid gap-3">
+        <div>
+            <ElButton type="primary" icon="check" @click="open()">
+                Open Modal
+            </ElButton>
         </div>
-        <div class="grid gap-3">
-            <div>
-                <ElButton type="primary" icon="check" @click="open()">
-                    Open Modal
-                </ElButton>
-            </div>
-        </div>
-    </PageSection>
-    <ModalPathView />
+    </div>
+
+    <ModalRouterView />
 </template>
 <style></style>

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ElButton } from 'element-plus'
 import HighlightText from '~/components/HighlightText.vue'
-import { useModalRoute, ModalLayout } from '@vmrh/core'
+import { useModalRoute } from '@vmrh/core'
 
 defineProps({
     message: {

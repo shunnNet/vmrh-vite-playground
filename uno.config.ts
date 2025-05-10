@@ -11,6 +11,9 @@ export default defineConfig({
 
       ]
     }
-  }
+  },
+  shortcuts: {
+    'description': 'text-gray-500 leading-6',
+  },
   // ...UnoCSS options
 })

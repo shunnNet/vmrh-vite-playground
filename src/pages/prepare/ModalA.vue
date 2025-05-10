@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ElButton, ElFormItem, ElForm, ElLoading } from 'element-plus'
 import { ref, watch } from 'vue'
-import { useCurrentModal, ModalLayout, useModalRoute } from '@vmrh/core'
+import { useCurrentModal, useModalRoute } from '@vmrh/core'
 const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms))
 
 const props = defineProps({

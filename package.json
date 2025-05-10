@@ -11,7 +11,7 @@
   "dependencies": {
     "@element-plus/icons-vue": "2.1.0",
     "@unocss/reset": "0.63.2",
-    "@vmrh/core": "0.1.0-alpha.1",
+    "@vmrh/core": "0.2.0-alpha",
     "element-plus": "2.3.14",
     "unocss": "0.63.2",
     "vue": "^3.5.13",

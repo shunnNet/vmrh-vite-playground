@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import elementPlus from './element-plus'
 import { router } from './router'
+import './style.css'
 import '@unocss/reset/tailwind-compat.css'
 import 'virtual:uno.css'
 

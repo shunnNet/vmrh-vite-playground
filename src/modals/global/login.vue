@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { ModalLayout, useCurrentModal } from '@vmrh/core'
+import { useCurrentModal } from '@vmrh/core'
 import { ElMessage } from 'element-plus'
 import { reactive, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-
+import HighlightText from '~/components/HighlightText.vue'
 const { closeThenReturn } = useCurrentModal()
 
 defineProps<{
@@ -32,7 +32,6 @@ onMounted(() => {
 </script>
 <template>
     <ModalLayout title="Login" class="!max-w-400px">
-        <p>{{ message }}</p>
         <ElForm>
             <ElFormItem label="Username">
                 <ElInput
@@ -47,6 +46,10 @@ onMounted(() => {
                     type="password"
                 />
             </ElFormItem>
+
+            <div class="mb-4">
+                <HighlightText :message="message" />
+            </div>
 
             <div class="mt-10 w-full">
                 <ElButton

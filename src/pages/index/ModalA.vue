@@ -1,13 +1,6 @@
 <script setup lang="ts">
 import { ElButton } from 'element-plus'
-import {
-    useCurrentModal,
-    useModalRoute,
-    ModalLayout,
-    ModalRouterView,
-    setupModal,
-    ModalPathView,
-} from '@vmrh/core'
+import { useCurrentModal, useModalRoute, setupModal } from '@vmrh/core'
 import { ref } from 'vue'
 
 const { openModal } = useModalRoute()
@@ -19,12 +12,8 @@ defineProps<{
 }>()
 defineEmits(['message'])
 
-const { open: openNestedModal } = setupModal('ModalANestedChild')
-
 const user = ref<null | { username: string; password: string }>(null)
 const onOpenLoginModal = async () => {
-    // TODO: URL Not include _modal
-    // TODO: data No effect
     const v = await openModal('Login', {
         data: {
             message: 'Message from data (props)',
@@ -34,19 +23,26 @@ const onOpenLoginModal = async () => {
         user.value = v
     }
 }
-// const { open: openQueryModalA } = QueryModalA.use()
 const onCloseConfirm = async () => {
     const yes = await openModal('Confirm', {
-        // TODO: data No effect
         data: {
             title: 'Title from data (props)',
-            message: 'Are you sure you want to confirm this action?',
+            message:
+                'Are you sure you want to confirm this action (from data)?',
         },
     })
     if (yes) {
         close()
     }
 }
+
+const { open: openNestedModal } = setupModal('ModalANestedChild', {
+    props: {
+        onCloseParent: () => {
+            close()
+        },
+    },
+})
 </script>
 <template>
     <ModalLayout :layout title="Page Single Modal A">
@@ -63,22 +59,22 @@ const onCloseConfirm = async () => {
             <RouterLink
                 :to="{ name: 'ModalA' }"
                 class="text-blue-500 hover:text-blue-600 cursor-pointer"
-                >Go to /</RouterLink
+                >Index</RouterLink
             >
             <RouterLink
                 :to="{ name: 'ModalAChild1' }"
                 class="text-blue-500 hover:text-blue-600 cursor-pointer"
-                >Go to ModalAChild1</RouterLink
+                >Child 1</RouterLink
             >
             <RouterLink
                 :to="{ name: 'ModalAChild2' }"
                 class="text-blue-500 hover:text-blue-600 cursor-pointer"
-                >Go to ModalAChild2</RouterLink
+                >Child 2</RouterLink
             >
         </nav>
 
         <section class="mb-4">
-            <!-- <ModalRouterView /> -->
+            <RouterView />
         </section>
 
         <div class="mb-3">
@@ -107,7 +103,6 @@ const onCloseConfirm = async () => {
             <ElButton type="primary" icon="Message" @click="onOpenLoginModal">
                 Open Login Modal
             </ElButton>
-            <!-- TODO: history wrong -->
             <ElButton type="success" icon="Message" @click="openNestedModal()">
                 Open Nested Modal
             </ElButton>
@@ -119,10 +114,18 @@ const onCloseConfirm = async () => {
             <p>Username: {{ user?.username }}</p>
             <p>Password: {{ user?.password }}</p>
         </div>
+        <div class="mt-4">
+            <ModalRouterView>
+                <template #default="{ Component }">
+                    <Transition name="fade" mode="out-in">
+                        <component :is="Component" />
+                    </Transition>
+                </template>
+            </ModalRouterView>
+        </div>
         <template #footer>
             <slot name="footer" />
         </template>
-        <ModalPathView />
     </ModalLayout>
 </template>
 <style></style>
